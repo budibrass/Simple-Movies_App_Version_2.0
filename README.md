@@ -32,7 +32,7 @@ Buatlah Movies App V2 dengan require sebagai berikut :
     - Buatlah Hubungan Asosiasi / Relasi antar setiap table, tentukan juga Primary Key dan Foreign Key nya dengan ketentuan :
         - Tabel Cast dan Movie memiliki hubungan `Many to Many`, sehingga terbentuk tabel baru bernama `MovieCast`
         - Tabel Production House dan Movie memiliki hubungan `One to Many`
-        - Tentukan Primary Key dan Foreign Key nya did alam folder models di setiap masing - masing file
+        - Tentukan Primary Key dan Foreign Key nya di dalam folder models di setiap masing - masing file
 
 - Release 2:
     - Buatlah route dengan ketentuan :
@@ -60,7 +60,7 @@ Hal yang perlu dilakukan untuk memulai Aplikasi Web :
 
 - Pastikan di komputer kamu telah terinstal Postgres
 - clone this repository
-- cd School_App
+- cd Simple-Movies_App_Version_2.0
 - npm install
 - Masuk ke folder config, lalu ubah settingan sesuai dengan di laptop / komputer kamu
     ```JavaScript
