@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= data.getFullName(data.first_name, data.last_name)%></title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <h1 style="display: inline; background-color: gray;"><%= data.getFullName(data.first_name, data.last_name)%></h1>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Movie</th>
+                <th scope="col">Released Year</th>
+                <th scope="col">Age when Movie Released</th>
+                <th scope="col">role</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(let movie of data.Movies) { %> 
+                    <tr>
+                      <td><%= movie.name%></td>
+                      <td><%= movie.released_year%></td>
+                      <td><%= movie.released_year - data.birth_year%></td>
+                      <td><%= movie.MovieCast.role%></td>
+                    </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

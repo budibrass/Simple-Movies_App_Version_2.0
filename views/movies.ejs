@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movies</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <h1>List Movies</h1>
+        <div style="text-align: right; padding-right: 2%; padding-bottom: 10px;">
+            <a href="/movies/add" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Movie</a>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Movie</th>
+                <th scope="col">Released Year</th>
+                <th scope="col">Genre</th>
+                <th scope="col">Production House</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(let data of datas) { %> 
+                    <tr>
+                      <td><%= data.name%></td>
+                      <td><%= data.released_year%></td>
+                      <td><%= data.genre%></td>
+                      <td><%= (data.ProductionHouseId === 0) ? 'unknown' : data.ProductionHouse.name_prodHouse %></td>
+                      <td><a href="/movies/<%=data.id%>/edit">Edit</a> | <a href="/movies/<%=data.id%>/delete">Delete</a> | <a href="/movies/<%=data.id%>/casts/add">Add Cast</a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

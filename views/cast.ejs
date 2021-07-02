@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cast</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+        <h1>List Cast</h1>
+        <div style="text-align: right; padding-right: 2%; padding-bottom: 10px;">
+            <a href="/casts/add" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add Cast</a>
+        </div>
+        <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Birth Year</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Gender</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(let data of datas) { %> 
+                    <tr>
+                      <td><%= data.getFullName(data.first_name, data.last_name)%></td>
+                      <td><%= data.birth_year%></td>
+                      <td><%= data.phone_number%></td>
+                      <td><%= data.gender %></td>
+                      <td><a href="/casts/<%=data.id%>/edit">Edit</a> | <a href="/casts/<%=data.id%>/delete">Delete</a> | <a href="/casts/<%=data.id%>/seemovies">See Movies</a></td>
+                    </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

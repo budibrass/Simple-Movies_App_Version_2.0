@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Movie</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1 style="text-align: center;">Edit Movie</h1><br>
+    <div style="text-align: center;">
+        <a href="/movies" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Show All Movie</a>
+    </div>
+    <form action="/movies/<%=movies.id%>/edit" method="POST">
+        <div style="width: 30%;" class="container">
+            <br><br>
+            <% if (error) { %>
+                <div class="alert alert-warning" role="alert">
+                    <%=error%>
+                </div>
+            <% } %>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Movie's Name</span>
+                </div>
+                <input type="text" name="name" value="<%=movies.name%>" class="form-control" placeholder="e.g: 12 Angry Man" aria-label="Username" aria-describedby="basic-addon1">
+            </div><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Released Year</span>
+                </div>
+                <input type="text" name="released_year" value="<%=movies.released_year%>" class="form-control" placeholder="e.g: 1957" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <select name="genre" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    <option>--Select Genre--</option>
+                    <option value="animasi" <%= (movies.genre === 'animasi') ? selected='selected' : ''%>>animasi</option>
+                    <option value="comedy" <%= (movies.genre === 'comedy') ? selected='selected' : ''%>>comedy</option>
+                    <option value="drama" <%= (movies.genre === 'drama') ? selected='selected' : ''%>>drama</option>
+                    <option value="horror" <%= (movies.genre === 'horror') ? selected='selected' : ''%>>horror</option>
+                    <option value="religi" <%= (movies.genre === 'religi') ? selected='selected' : ''%>>religi</option>
+                    <option value="thriller" <%= (movies.genre === 'thriller') ? selected='selected' : ''%>>thriller</option>
+                  </select>
+            </div>
+            <div class="input-group mb-3">
+                <select name="ProductionHouseId" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    <option>--Select Production House--</option>
+                    <% for(let data of datas) { %> 
+                        <option value="<%=data.id%>" <%=(data.id === movies.ProductionHouseId) ? selected='selected' : ''%>><%=data.name_prodHouse%></option>
+                    <% } %>
+                  </select>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <a class="btn btn-primary" href="/movies" role="button">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Production House</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div class="container">
+      <h1>Production House</h1><br><br>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Headquarters</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% for(let data of datas) { %> 
+                  <tr>
+                    <td><%= data.name_prodHouse%></td>
+                    <td><%= data.headquarters%></td>
+                  </tr>
+              <% } %>
+          </tbody>
+        </table>
+    </div>
+</body>
+</html>

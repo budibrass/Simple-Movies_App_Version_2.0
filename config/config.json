@@ -1,0 +1,9 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "git_movie_app_V2",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Movie Cast</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <div>
+        <h1 style="position: fixed; left: 70%; ">Add Cast:</h1>
+        <div style="width: 40%; border-radius: 8px; padding-top: 10px;padding-bottom: 10px;margin-top: 40px; margin-left: 100px; background-color: gray;">
+            <h4 style="text-align: center;"><%=movie.name%></h4>
+        </div>
+    </div><br>
+    <form action="/movies/<%=movie.id%>/casts/add" method="POST">
+        <div style="width: 30%; margin-left: 63%;">
+            <% if (arr) { %>
+                <div class="alert alert-warning" role="alert">
+                    <%=arr%>
+                </div>
+            <% } %>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Actor</span>
+                  </div>
+                <select name="cast" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    <option>--Select Actor--</option>
+                    <% for(let data of datas) { %> 
+                        <option value="<%=data.id%>"><%= data.getFullName(data.first_name, data.last_name)%></option>
+                    <% } %>
+                  </select>
+            </div><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Role</span>
+                </div>
+                <input type="text" name="role" class="form-control" placeholder="e.g: Pemeran Utama" aria-label="Username" aria-describedby="basic-addon1">
+            </div><br>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <a class="btn btn-primary" href="/movies" role="button">Cancel</a>
+        </div>
+    </form>
+    <div class="container">
+        <h3>List Cast</h3>
+        <table class="table" style="width: 50%;">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Actor</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% for(let cast of movie.Casts) { %> 
+                    <tr>
+                      <td><%= cast.getFullName(cast.first_name, cast.last_name)%></td>
+                      <td><%= cast.MovieCast.role%></td>
+                    </tr>
+                <% } %>
+            </tbody>
+          </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Cast</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1 style="text-align: center;">Edit Cast</h1>
+    <div style="text-align: center;">
+        <a href="/casts" style="text-align: center;">Show All Cast</a>
+    </div>
+    <form action="/casts/<%=data.id%>/edit" method="POST">
+        <div style="width: 30%;" class="container">
+            <br><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">First Name</span>
+                </div>
+                <input type="text" name="first_name" value="<%=data.first_name%>" class="form-control" placeholder="e.g: John" aria-label="Username" aria-describedby="basic-addon1">
+            </div><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Last Name</span>
+                </div>
+                <input type="text" name="last_name" value="<%=data.last_name%>" class="form-control" placeholder="e.g: Doe" aria-label="Username" aria-describedby="basic-addon1">
+            </div><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Birth Year</span>
+                </div>
+                <input type="text" name="birth_year" value="<%=data.birth_year%>" class="form-control" placeholder="e.g: 1972" aria-label="Username" aria-describedby="basic-addon1">
+            </div><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Phone Number</span>
+                </div>
+                <input type="text" name="phone_number" value="<%=data.phone_number%>" class="form-control" placeholder="e.g: 081234567890" aria-label="Username" aria-describedby="basic-addon1">
+            </div><br>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-default">Gender</span>
+                </div>
+                <div style="padding-left: 10px; padding-top: 7px;">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male" <%= (data.gender === 'male') ? 'checked' : ''%>>
+                        <label class="form-check-label" for="inlineRadio1">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="female" <%= (data.gender === 'female') ? 'checked' : ''%>>
+                        <label class="form-check-label" for="inlineRadio1">Female</label>
+                    </div>
+                </div>
+            </div><br>
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <a class="btn btn-primary" href="/casts" role="button">Cancel</a>
+        </div>
+    </form>
+</body>
+</html>
