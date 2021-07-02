@@ -55,6 +55,17 @@ Buatlah Movies App V2 dengan require sebagai berikut :
             - Memiliki Fitur See Movies
                 note => See Movies di gunakan untuk melihat si Pemain / Casting bermain di Film apa saja
 
+- Release 3:
+    - Buat validasi untuk :
+        - Saat edit, data yang bersifat select harus berhasil mendapatkan value nya, tidak boleh kosong
+        - List dropdown production harus diambil dari database, tidak boleh custom sendiri di ejs nya
+        - Jika dalam list movie nama production nya masih kosong, maka tampilkan `unknown`
+        - Menurut ramalan kuno duni perfilm-an, merelease film pada tahun kabisat akan merugikan, maka buatlah pesan error jika movie di terbitkan pada tahun kabisat maka data tidak dapat di save.
+            - notes =>  cari di google arti tahun kabisat
+        - Implementasikan `Hook Sequelize` dengan require:
+            - Jika last name dikosong kan, maka secara otomatis last name akan diisi sama dengan first name
+            - Untuk menampilkan fullname pada halaman cast list maka implementasikan instance method
+
 # Getting Started
 Hal yang perlu dilakukan untuk memulai Aplikasi Web :
 
